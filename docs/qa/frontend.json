@@ -1,0 +1,19 @@
+{
+  "passed": 14,
+  "checks": [
+    "Five navigation routes",
+    "Overview renders actual model statistics",
+    "Overview has no displayed API error",
+    "All fourteen symptom inputs render",
+    "Report preset fills assessment form",
+    "Real report example predicts High",
+    "All three vote shares render",
+    "Reset clears previous result",
+    "Server validation errors render in assessment",
+    "CSV schema shown",
+    "CSV form validates real uploaded data",
+    "CSV form queues actual backend job and links to history",
+    "Experiment history renders persistent backend records",
+    "Methodology includes model-calibration limitation"
+  ]
+}
