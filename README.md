@@ -4,6 +4,19 @@ A functional educational website for the MUJ CCE3131 Disease Outbreak Risk Class
 
 **Synthetic-data coursework only. Not a medical device, diagnosis, clinical probability estimator, or population outbreak forecasting service.** Never use a Low output to rule out illness. The model's neighbor vote shares are not calibrated clinical probabilities.
 
+## Live website
+
+**Open the app: [https://disease-outbreak-knn-web.onrender.com](https://disease-outbreak-knn-web.onrender.com)**
+
+The full FastAPI/Python application is hosted on **Render Free**, connected to this GitHub repository’s `main` branch with **On Commit** auto-deployment. This is not a static GitHub Pages preview.
+
+- Visitors can use the assessment without an API key. [Try the assessment](https://disease-outbreak-knn-web.onrender.com/assess).
+- Training, CSV validation and experiment creation are operator-protected to avoid unrestricted expensive jobs. The repository owner can retrieve `APP_API_TOKEN` from the Render service’s **Environment** settings and enter it in the site’s operator-key field. Never commit or publicly share that key.
+- **Free-tier limits:** the service can sleep after 15 minutes without inbound traffic, so the first visit may take about a minute to wake. The local filesystem is temporary: SQLite run history, uploaded CSVs and generated results can be lost on sleep, restart or redeploy. Download any results you need to keep. See [Render Free limits](https://render.com/docs/free).
+- Only synthetic or appropriately de-identified coursework data should be used. This is a coursework demo, not clinical or production infrastructure.
+
+Verified live on **28 October 2026**: all five pages, frontend assets, model metadata, real report-example prediction (High; 78.17% neighbor vote share), invalid-input rejection, and anonymous-training rejection. The complete full-data experiment was validated locally; a full search has not been benchmarked on the free host’s limited CPU.
+
 ## Features
 - Five routes: overview, assessment, experiments, dataset and methodology.
 - Real StandardScaler + KNN serving pipeline: seed 42, 80/20 stratified split, k=25, cosine distance, distance weighting.
@@ -80,15 +93,17 @@ node tests/frontend.cjs
 These expect the server on http://127.0.0.1:8765 (or set TEST_BASE_URL). DOM tests are not a substitute for browser rendering/accessibility audits. See `docs/TEST_REPORT.md` and raw QA evidence for exact verified/untested status.
 
 ## Deployment
-A public deployment was not performed. To run the packaged container:
+The public deployment above runs the repository Docker image on Render Free (512 MB RAM, 0.1 CPU). The image built and the Python application started successfully on Render. The service has `SKLEARN_WORKING_MEMORY=64`, `OPENBLAS_NUM_THREADS=1` and `OMP_NUM_THREADS=1` to bound numerical resource use, plus a generated `APP_API_TOKEN` stored only in Render.
+
+To run the container yourself:
 ```sh
 docker build -t outbreak-knn .
 docker run --rm -p 127.0.0.1:8000:8000 -v outbreak-data:/data outbreak-knn
 ```
-The container recipe is provided but not verified in this environment. A small VM or container host with persistent disk and adequate CPU/RAM is appropriate for coursework; serverless request-limited hosting is a poor fit for background grid search. A public deployment needs HTTPS, an authenticated reverse proxy covering all pages/APIs, rate limiting, operator-only training, storage controls and a review of data handling. Supply APP_API_TOKEN securely and do not trust forwarded client IPs as authentication. Do not expose real patient data. Docker port mapping above intentionally binds the host's loopback interface only.
+The image is verified on Render; execution through a local Docker installation remains untested. A small VM or container host with persistent disk and adequate CPU/RAM is appropriate for coursework; serverless request-limited hosting is a poor fit for background grid search. The hosted demo has HTTPS and operator-only training. Before treating it as production, add full authentication, rate limiting, durable storage, and a data-handling review. Supply APP_API_TOKEN securely and do not trust forwarded client IPs as authentication. Do not expose real patient data. Docker port mapping above intentionally binds the host's loopback interface only.
 
 ## Repository handover
-Approved private repository: https://github.com/Madhurjya-K/disease-outbreak-knn-web (main). Initial transfer uses the connected integration because local Git authentication is unavailable. The included local history and remote per-file history differ. For future work, clone the populated remote rather than force-pushing the separate local history.
+Public repository: https://github.com/Madhurjya-K/disease-outbreak-knn-web (main). Initial transfer uses the connected integration because local Git authentication is unavailable. The included local history and remote per-file history differ. For future work, clone the populated remote rather than force-pushing the separate local history.
 
 For a separate empty repository only, the standard commands would be:
 ```bat
