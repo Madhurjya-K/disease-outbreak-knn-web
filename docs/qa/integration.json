@@ -1,0 +1,301 @@
+{
+  "runs": [
+    {
+      "id": "0eb73cf1459a4cf8b39d2b8645b66d38",
+      "created_at": "2026-10-28T06:59:08.551725+00:00",
+      "status": "completed",
+      "source": "upload",
+      "error": null
+    },
+    {
+      "id": "2ffbff59896f4d1690f7e568111157a5",
+      "created_at": "2026-10-28T06:29:20.405778+00:00",
+      "status": "completed",
+      "source": "upload",
+      "error": null
+    },
+    {
+      "id": "d5a5d1012d4f42c0abb97c322fd3b180",
+      "created_at": "2026-10-28T06:25:41.168046+00:00",
+      "status": "completed",
+      "source": "synthetic",
+      "error": null
+    }
+  ],
+  "model": {
+    "source": "Synthetic, seed 42",
+    "mode": "Fresh fit with report preset; not a new grid-search run",
+    "samples": 3000,
+    "features": [
+      "fever",
+      "cough",
+      "fatigue",
+      "headache",
+      "body_ache",
+      "sore_throat",
+      "breathlessness",
+      "loss_of_smell",
+      "diarrhea",
+      "vomiting",
+      "rash",
+      "joint_pain",
+      "chills",
+      "nausea",
+      "age",
+      "temperature_c",
+      "days_since_onset",
+      "contact_with_case"
+    ],
+    "train_size": 2400,
+    "test_size": 600,
+    "params": {
+      "k": 25,
+      "weights": "distance",
+      "metric": "cosine"
+    },
+    "accuracy": 0.7883333333333333,
+    "macro_f1": 0.7446634749266329,
+    "baseline_raw": 0.665,
+    "baseline_scaled": 0.7283333333333334,
+    "classification_report": {
+      "Low": {
+        "precision": 0.8149171270718232,
+        "recall": 0.9735973597359736,
+        "f1-score": 0.8872180451127819,
+        "support": 303.0
+      },
+      "Medium": {
+        "precision": 0.7256637168141593,
+        "recall": 0.4685714285714286,
+        "f1-score": 0.5694444444444444,
+        "support": 175.0
+      },
+      "High": {
+        "precision": 0.768,
+        "recall": 0.7868852459016393,
+        "f1-score": 0.7773279352226721,
+        "support": 122.0
+      },
+      "accuracy": 0.7883333333333333,
+      "macro avg": {
+        "precision": 0.7695269479619942,
+        "recall": 0.7430180114030138,
+        "f1-score": 0.7446634749266329,
+        "support": 600.0
+      },
+      "weighted avg": {
+        "precision": 0.7793450665754006,
+        "recall": 0.7883333333333333,
+        "f1-score": 0.7721897559068611,
+        "support": 600.0
+      }
+    },
+    "confusion_matrix": [
+      [
+        295,
+        8,
+        0
+      ],
+      [
+        64,
+        82,
+        29
+      ],
+      [
+        3,
+        23,
+        96
+      ]
+    ],
+    "class_counts": {
+      "Low": 1514,
+      "Medium": 877,
+      "High": 609
+    }
+  },
+  "results": {
+    "0eb73cf1459a4cf8b39d2b8645b66d38": {
+      "n_samples": 200,
+      "n_features": 18,
+      "train_size": 160,
+      "test_size": 40,
+      "baseline_no_scaling_acc": 0.625,
+      "baseline_scaled_acc": 0.625,
+      "best_params": {
+        "metric": "cosine",
+        "n_neighbors": 19,
+        "weights": "distance"
+      },
+      "cv_best_macro_f1": 0.6914,
+      "test_accuracy": 0.75,
+      "test_macro_f1": 0.6903,
+      "test_recall_per_class": {
+        "Low": 1.0,
+        "Medium": 0.333,
+        "High": 0.714
+      },
+      "classification_report": {
+        "Low": {
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1-score": 0.8571,
+          "support": 21.0
+        },
+        "Medium": {
+          "precision": 0.6667,
+          "recall": 0.3333,
+          "f1-score": 0.4444,
+          "support": 12.0
+        },
+        "High": {
+          "precision": 0.8333,
+          "recall": 0.7143,
+          "f1-score": 0.7692,
+          "support": 7.0
+        },
+        "accuracy": 0.75,
+        "macro avg": {
+          "precision": 0.75,
+          "recall": 0.6825,
+          "f1-score": 0.6903,
+          "support": 40.0
+        },
+        "weighted avg": {
+          "precision": 0.7396,
+          "recall": 0.75,
+          "f1-score": 0.7179,
+          "support": 40.0
+        }
+      },
+      "pca_2d_explained_variance": 0.2713,
+      "demo_patient_prediction": "High",
+      "demo_patient_probabilities": {
+        "Low": 0.0,
+        "Medium": 0.209,
+        "High": 0.791
+      }
+    },
+    "2ffbff59896f4d1690f7e568111157a5": {
+      "n_samples": 200,
+      "n_features": 18,
+      "train_size": 160,
+      "test_size": 40,
+      "baseline_no_scaling_acc": 0.625,
+      "baseline_scaled_acc": 0.625,
+      "best_params": {
+        "metric": "cosine",
+        "n_neighbors": 19,
+        "weights": "distance"
+      },
+      "cv_best_macro_f1": 0.6914,
+      "test_accuracy": 0.75,
+      "test_macro_f1": 0.6903,
+      "test_recall_per_class": {
+        "Low": 1.0,
+        "Medium": 0.333,
+        "High": 0.714
+      },
+      "classification_report": {
+        "Low": {
+          "precision": 0.75,
+          "recall": 1.0,
+          "f1-score": 0.8571,
+          "support": 21.0
+        },
+        "Medium": {
+          "precision": 0.6667,
+          "recall": 0.3333,
+          "f1-score": 0.4444,
+          "support": 12.0
+        },
+        "High": {
+          "precision": 0.8333,
+          "recall": 0.7143,
+          "f1-score": 0.7692,
+          "support": 7.0
+        },
+        "accuracy": 0.75,
+        "macro avg": {
+          "precision": 0.75,
+          "recall": 0.6825,
+          "f1-score": 0.6903,
+          "support": 40.0
+        },
+        "weighted avg": {
+          "precision": 0.7396,
+          "recall": 0.75,
+          "f1-score": 0.7179,
+          "support": 40.0
+        }
+      },
+      "pca_2d_explained_variance": 0.2713,
+      "demo_patient_prediction": "High",
+      "demo_patient_probabilities": {
+        "Low": 0.0,
+        "Medium": 0.209,
+        "High": 0.791
+      }
+    },
+    "d5a5d1012d4f42c0abb97c322fd3b180": {
+      "n_samples": 3000,
+      "n_features": 18,
+      "train_size": 2400,
+      "test_size": 600,
+      "baseline_no_scaling_acc": 0.665,
+      "baseline_scaled_acc": 0.7283,
+      "best_params": {
+        "metric": "cosine",
+        "n_neighbors": 25,
+        "weights": "distance"
+      },
+      "cv_best_macro_f1": 0.7194,
+      "test_accuracy": 0.7883,
+      "test_macro_f1": 0.7447,
+      "test_recall_per_class": {
+        "Low": 0.974,
+        "Medium": 0.469,
+        "High": 0.787
+      },
+      "classification_report": {
+        "Low": {
+          "precision": 0.8149,
+          "recall": 0.9736,
+          "f1-score": 0.8872,
+          "support": 303.0
+        },
+        "Medium": {
+          "precision": 0.7257,
+          "recall": 0.4686,
+          "f1-score": 0.5694,
+          "support": 175.0
+        },
+        "High": {
+          "precision": 0.768,
+          "recall": 0.7869,
+          "f1-score": 0.7773,
+          "support": 122.0
+        },
+        "accuracy": 0.7883,
+        "macro avg": {
+          "precision": 0.7695,
+          "recall": 0.743,
+          "f1-score": 0.7447,
+          "support": 600.0
+        },
+        "weighted avg": {
+          "precision": 0.7793,
+          "recall": 0.7883,
+          "f1-score": 0.7722,
+          "support": 600.0
+        }
+      },
+      "pca_2d_explained_variance": 0.231,
+      "demo_patient_prediction": "High",
+      "demo_patient_probabilities": {
+        "Low": 0.0,
+        "Medium": 0.218,
+        "High": 0.782
+      }
+    }
+  }
+}
