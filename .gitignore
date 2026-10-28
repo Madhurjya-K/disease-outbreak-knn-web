@@ -1,0 +1,13 @@
+.venv/
+node_modules/
+__pycache__/
+.pytest_cache/
+*.pyc
+.env
+.env.*
+!.env.example
+var/
+outputs/
+*.sqlite3
+*.joblib
+*.log
